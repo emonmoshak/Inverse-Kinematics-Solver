@@ -1,5 +1,3 @@
-from typing import Optional
-
 import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib.figure import Figure
@@ -50,7 +48,7 @@ class RobotPlotter:
         return fig, ax
 
     def plot_arm(
-        self, ax: Axes3D, joint_angles: np.ndarray, color: Optional[str] = None
+        self, ax: Axes3D, joint_angles: np.ndarray, color: str | None = None
     ) -> None:
         """
         Plots the robot arm links and joints.

@@ -1,5 +1,6 @@
-import numpy as np
 from typing import Any
+
+import numpy as np
 
 from src.robot.model import RobotModel
 from src.solvers.base import IKSolution, IKSolver

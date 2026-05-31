@@ -1,5 +1,4 @@
 from dataclasses import dataclass
-from typing import Optional
 
 import numpy as np
 
@@ -28,7 +27,7 @@ class RobotModel:
     joint_limits: list[JointLimits]
 
     def __init__(
-        self, link_lengths: list[float], joint_limits: Optional[list[JointLimits]] = None
+        self, link_lengths: list[float], joint_limits: list[JointLimits] | None = None
     ) -> None:
         """
         Initializes the RobotModel.
