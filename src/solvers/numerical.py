@@ -100,7 +100,6 @@ class NumericalIKSolver(IKSolver):
             )
         ]
 
-
     def get_determinant(self, joint_angles: np.ndarray) -> float:
         """
         Returns the determinant of the Jacobian (singularity check).

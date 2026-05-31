@@ -20,7 +20,6 @@ def fk() -> ForwardKinematics:
 def test_forward_kinematics_horizontal(
     robot: RobotModel, fk: ForwardKinematics
 ) -> None:
-
     """Test FK with all zeros (arm extends horizontally)."""
     angles = np.zeros(3)
     pos = fk.solve(robot, angles)
