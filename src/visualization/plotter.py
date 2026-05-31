@@ -1,5 +1,8 @@
+from typing import Optional
+
 import matplotlib.pyplot as plt
 import numpy as np
+from matplotlib.figure import Figure
 from mpl_toolkits.mplot3d import Axes3D
 
 from src.kinematics.forward import ForwardKinematics
@@ -26,7 +29,7 @@ class RobotPlotter:
             "links": "#94A3B8",
         }
 
-    def setup_plot(self) -> tuple[plt.Figure, Axes3D]:
+    def setup_plot(self) -> tuple[Figure, Axes3D]:
         """Sets up the 3D plot with PRD-compliant styling."""
         plt.style.use("dark_background")
         fig = plt.figure(figsize=(10, 8), facecolor=self.colors["bg"])
@@ -46,7 +49,9 @@ class RobotPlotter:
 
         return fig, ax
 
-    def plot_arm(self, ax: Axes3D, joint_angles: np.ndarray, color: str = None) -> None:
+    def plot_arm(
+        self, ax: Axes3D, joint_angles: np.ndarray, color: Optional[str] = None
+    ) -> None:
         """
         Plots the robot arm links and joints.
 

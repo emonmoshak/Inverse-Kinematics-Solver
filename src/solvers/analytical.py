@@ -1,4 +1,5 @@
 import numpy as np
+from typing import Any
 
 from src.robot.model import RobotModel
 from src.solvers.base import IKSolution, IKSolver
@@ -12,7 +13,9 @@ class AnalyticalIKSolver(IKSolver):
     def __init__(self, robot: RobotModel) -> None:
         self.robot = robot
 
-    def solve(self, target_pos: np.ndarray, elbow_up: bool = True) -> list[IKSolution]:
+    def solve(
+        self, target_pos: np.ndarray, elbow_up: bool = True, **kwargs: Any
+    ) -> list[IKSolution]:
         """
         Solves IK analytically.
 

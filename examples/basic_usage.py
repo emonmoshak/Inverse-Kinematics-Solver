@@ -5,7 +5,7 @@ from src.robot.model import RobotModel
 from src.solvers.analytical import AnalyticalIKSolver
 
 
-def basic_usage():
+def basic_usage() -> None:
     # 1. Initialize Robot
     robot = RobotModel([1.0, 1.0, 0.5])
     fk = ForwardKinematics()

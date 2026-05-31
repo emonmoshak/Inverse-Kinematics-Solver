@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+from typing import Optional
 
 import numpy as np
 
@@ -19,12 +20,15 @@ class RobotModel:
     Represents a 3-DOF robotic arm model.
 
     Attributes:
-        link_lengths (List[float]): Lengths of the three links [L1, L2, L3].
-        joint_limits (List[JointLimits]): Min/max angles for each joint.
+        link_lengths (np.ndarray): Lengths of the three links [L1, L2, L3].
+        joint_limits (list[JointLimits]): Min/max angles for each joint.
     """
 
+    link_lengths: np.ndarray
+    joint_limits: list[JointLimits]
+
     def __init__(
-        self, link_lengths: list[float], joint_limits: list[JointLimits] = None
+        self, link_lengths: list[float], joint_limits: Optional[list[JointLimits]] = None
     ) -> None:
         """
         Initializes the RobotModel.

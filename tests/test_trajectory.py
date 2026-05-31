@@ -3,7 +3,7 @@ import numpy as np
 from src.trajectory.planner import TrajectoryPlanner
 
 
-def test_linear_interpolation():
+def test_linear_interpolation() -> None:
     start = np.array([0, 0, 0])
     end = np.array([1, 1, 1])
     steps = 11
@@ -16,7 +16,7 @@ def test_linear_interpolation():
     np.testing.assert_allclose(traj[5], np.array([0.5, 0.5, 0.5]))
 
 
-def test_cubic_interpolation():
+def test_cubic_interpolation() -> None:
     waypoints = np.array([[0, 0, 0], [1, 2, 1], [2, 0, 2]])
     steps = 50
 

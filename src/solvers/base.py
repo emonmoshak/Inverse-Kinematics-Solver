@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
 from dataclasses import dataclass
+from typing import Any
 
 import numpy as np
 
@@ -19,7 +20,7 @@ class IKSolver(ABC):
     """Base class for Inverse Kinematics solvers."""
 
     @abstractmethod
-    def solve(self, target_pos: np.ndarray, **kwargs) -> list[IKSolution]:
+    def solve(self, target_pos: np.ndarray, **kwargs: Any) -> list[IKSolution]:
         """
         Solves the inverse kinematics problem.
 

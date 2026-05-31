@@ -1,4 +1,5 @@
 import numpy as np
+from typing import Optional, Any
 
 from src.kinematics.forward import ForwardKinematics
 from src.robot.model import RobotModel
@@ -42,12 +43,14 @@ class NumericalIKSolver(IKSolver):
     def solve(
         self,
         target_pos: np.ndarray,
-        initial_guess: np.ndarray = None,
+        initial_guess: Optional[np.ndarray] = None,
         method: str = "pseudoinverse",
         max_iterations: int = 100,
         tolerance: float = 1e-4,
         learning_rate: float = 0.5,
+        **kwargs: Any,
     ) -> list[IKSolution]:
+
         """
         Solves IK numerically.
 
@@ -67,10 +70,11 @@ class NumericalIKSolver(IKSolver):
         else:
             q = initial_guess.copy()
 
+        err_norm = 0.0
         for i in range(max_iterations):
             curr_pos = self.fk.solve(self.robot, q)
             error = target_pos - curr_pos
-            err_norm = np.linalg.norm(error)
+            err_norm = float(np.linalg.norm(error))
 
             if err_norm < tolerance:
                 return [IKSolution(q, True, err_norm, i, "Converged")]
@@ -91,7 +95,7 @@ class NumericalIKSolver(IKSolver):
             q = (q + np.pi) % (2 * np.pi) - np.pi
 
         return [
-            IKSolution(q, False, err_norm, max_iterations, "Max iterations reached")
+            IKSolution(q, False, float(err_norm), max_iterations, "Max iterations reached")
         ]
 
     def get_determinant(self, joint_angles: np.ndarray) -> float:

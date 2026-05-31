@@ -12,7 +12,15 @@ from src.workspace.generator import WorkspaceGenerator
 SINGULARITY_THRESHOLD = 1e-3
 
 
-def setup_robot() -> tuple:
+def setup_robot() -> tuple[
+    RobotModel,
+    ForwardKinematics,
+    AnalyticalIKSolver,
+    NumericalIKSolver,
+    WorkspaceGenerator,
+    TrajectoryPlanner,
+    RobotPlotter,
+]:
     """Initializes the robot and all core components."""
     link_lengths = [1.0, 1.0, 0.8]  # L1, L2, L3 in meters
     robot = RobotModel(link_lengths)
@@ -33,7 +41,7 @@ def setup_robot() -> tuple:
     )
 
 
-def run_demo():
+def run_demo() -> None:
     """Runs the full IK visualizer demo."""
     print("Initializing 3-DOF Robot Arm IK Visualizer...")
     (

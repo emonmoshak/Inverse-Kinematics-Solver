@@ -41,4 +41,4 @@ class TrajectoryPlanner:
         cs = CubicSpline(t, waypoints, axis=0)
 
         t_new = np.linspace(0, 1, steps)
-        return cs(t_new)
+        return cs(t_new)  # type: ignore[no-any-return]
