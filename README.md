@@ -1,5 +1,7 @@
 # 3-DOF Robot Arm Inverse Kinematics Visualizer
 
+![Demo GIF](assets/demo.gif)
+
 [![CI](https://github.com/your-username/inverse-kinematics-solver/actions/workflows/ci.yml/badge.svg)](https://github.com/your-username/inverse-kinematics-solver/actions/workflows/ci.yml)
 [![Version](https://img.shields.io/badge/version-0.1.0-blue.svg)](CHANGELOG.md)
 
