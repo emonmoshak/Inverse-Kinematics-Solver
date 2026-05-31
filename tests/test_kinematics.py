@@ -7,12 +7,12 @@ from src.solvers.analytical import AnalyticalIKSolver
 from src.solvers.numerical import NumericalIKSolver
 
 
-@pytest.fixture
+@pytest.fixture  # type: ignore[misc]
 def robot() -> RobotModel:
     return RobotModel([1.0, 1.0, 1.0])
 
 
-@pytest.fixture
+@pytest.fixture  # type: ignore[misc]
 def fk() -> ForwardKinematics:
     return ForwardKinematics()
 
